@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Study Tracker</title>
+    <meta name="theme-color" content="#0d1117" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark">ST</span>
+          <div>
+            <h1>Study Tracker</h1>
+            <p>May 29 - Jun 17, 2026</p>
+          </div>
+        </div>
+
+        <section class="panel compact">
+          <div class="panel-heading">
+            <h2>Overall</h2>
+            <span id="overallPercent">0%</span>
+          </div>
+          <div class="progress-track" aria-label="Overall progress">
+            <span id="overallBar"></span>
+          </div>
+          <div class="stat-grid">
+            <div>
+              <strong id="doneCount">0</strong>
+              <span>done</span>
+            </div>
+            <div>
+              <strong id="leftCount">0</strong>
+              <span>left</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Courses</h2>
+          </div>
+          <div id="courseList" class="course-list"></div>
+        </section>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Exam plan</p>
+            <h2 id="todayTitle">Today</h2>
+          </div>
+          <div class="actions">
+            <button id="hideCompletedBtn" class="icon-button" type="button" aria-pressed="false" title="Hide completed tasks">
+              <span class="button-icon">F</span>
+              <span>Focus</span>
+            </button>
+            <button id="exportBtn" class="icon-button" type="button" title="Export progress">
+              <span class="button-icon">E</span>
+              <span>Export</span>
+            </button>
+            <button id="resetBtn" class="icon-button danger" type="button" title="Reset progress">
+              <span class="button-icon">R</span>
+              <span>Reset</span>
+            </button>
+          </div>
+        </header>
+
+        <section class="summary-row" aria-label="Plan summary">
+          <div class="summary-card">
+            <span>Next exam</span>
+            <strong id="nextExam">-</strong>
+          </div>
+          <div class="summary-card">
+            <span>Today workload</span>
+            <strong id="todayWorkload">-</strong>
+          </div>
+          <div class="summary-card">
+            <span>After Jun 4</span>
+            <strong>Next exam only</strong>
+          </div>
+        </section>
+
+        <nav class="tabs" aria-label="Views">
+          <button class="tab active" type="button" data-view="timeline">Daily Plan</button>
+          <button class="tab" type="button" data-view="courses">Course View</button>
+        </nav>
+
+        <section id="timelineView" class="view active">
+          <div id="timeline" class="timeline"></div>
+        </section>
+
+        <section id="coursesView" class="view">
+          <div id="courseDetailGrid" class="course-detail-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
